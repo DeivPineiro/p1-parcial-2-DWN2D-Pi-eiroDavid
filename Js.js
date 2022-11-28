@@ -1,56 +1,61 @@
 'use strict';
 
 /*
- *  Piñeiro
+ *  Piñeiro David
  */
 
 let productos = [
     {
         id: 1,
-        nombre: 'Producto',
-        descripcion: 'Descripción del producto',
+        nombre: 'Producto 1',
+        descripcion: 'Descripción del producto 1',
         precio: 0,
         imagen: 'producto-de-ejemplo.jpg',
-        categoría: 'Nombre de la categoría',
+        categoría: 'A',
     },
     {
         id: 2,
-        nombre: 'Producto',
-        descripcion: 'Descripción del producto',
+        nombre: 'Producto 2',
+        descripcion: 'Descripción del producto 2',
         precio: 0,
         imagen: 'producto-de-ejemplo.jpg',
-        categoría: 'Nombre de la categoría',
+        categoría: 'A',
     },
     {
         id: 3,
-        nombre: 'Producto',
-        descripcion: 'Descripción del producto',
+        nombre: 'Producto 3',
+        descripcion: 'Descripción del producto 3',
         precio: 0,
         imagen: 'producto-de-ejemplo.jpg',
-        categoría: 'Nombre de la categoría',
+        categoría: 'B',
     },
     {
         id: 4,
-        nombre: 'Producto',
-        descripcion: 'Descripción del producto',
+        nombre: 'Producto 4',
+        descripcion: 'Descripción del producto 4',
         precio: 0,
         imagen: 'producto-de-ejemplo.jpg',
-        categoría: 'Nombre de la categoría',
+        categoría: 'B',
     },
     {
         id: 5,
-        nombre: 'Producto',
-        descripcion: 'Descripción del producto',
+        nombre: 'Producto 5',
+        descripcion: 'Descripción del producto 5',
         precio: 0,
         imagen: 'producto-de-ejemplo.jpg',
-        categoría: 'Nombre de la categoría',
+        categoría: 'C',
     },
     {
         id: 6,
-        nombre: 'Producto',
-        descripcion: 'Descripción del producto',
+        nombre: 'Producto 6',
+        descripcion: 'Descripción del producto 6',
         precio: 0,
         imagen: 'producto-de-ejemplo.jpg',
-        categoría: 'Nombre de la categoría',
+        categoría: 'C',
     },
+
 ];
+
+
+const tarjeta = document.createElement('div');
+
