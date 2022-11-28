@@ -63,43 +63,71 @@ let productos = [
 const listaProductos = document.getElementById("listaDeProductos");
 
 productos.forEach(unProducto => {
-//tarjeta
-const tarjeta = document.createElement('div');
-tarjeta.setAttribute ("class", "tarjeta");
-tarjeta.setAttribute ("id", unProducto.id)
-listaProductos.appendChild(tarjeta);
+    //tarjeta
+    const tarjeta = document.createElement('div');
+    tarjeta.setAttribute("class", "tarjeta");
+    tarjeta.setAttribute("id", unProducto.id)
+    listaProductos.appendChild(tarjeta);
 
-//titulo
-const tituloTarjeta = document.createElement('h3');
-tituloTarjeta.innerText = unProducto.nombre;
-tarjeta.appendChild(tituloTarjeta);
+    //titulo
+    const tituloTarjeta = document.createElement('h3');
+    tituloTarjeta.innerText = unProducto.nombre;
+    tarjeta.appendChild(tituloTarjeta);
 
-//imagen
-const imagenProducto = document.createElement('img');
-imagenProducto.setAttribute ("src", "producto-de-ejemplo.jpg");
-imagenProducto.setAttribute ("alt", "producto-de-ejemplo");
-tarjeta.appendChild(imagenProducto);
+    //imagen
+    const imagenProducto = document.createElement('img');
+    imagenProducto.setAttribute("src", "producto-de-ejemplo.jpg");
+    imagenProducto.setAttribute("alt", "producto-de-ejemplo");
+    tarjeta.appendChild(imagenProducto);
 
-//descripcion
-const descripcionProducto = document.createElement('p');
-descripcionProducto.innerText = unProducto.descripcion;
-tarjeta.appendChild(descripcionProducto);
+    //descripcion
+    const descripcionProducto = document.createElement('p');
+    descripcionProducto.innerText = unProducto.descripcion;
+    tarjeta.appendChild(descripcionProducto);
 
-//precio
-const precioProducto = document.createElement('p')
-precioProducto.innerText = "Precio: " + unProducto.precio;
-tarjeta.appendChild(precioProducto);
+    //precio
+    const precioProducto = document.createElement('p')
+    precioProducto.innerText = "Precio: " + unProducto.precio;
+    tarjeta.appendChild(precioProducto);
 
-//Categoria
-const categoriaProducto = document.createElement('p')
-categoriaProducto.innerText = "Categoria: " + unProducto.categoría;
-tarjeta.appendChild(categoriaProducto);
+    //Categoria
+    const categoriaProducto = document.createElement('p')
+    categoriaProducto.innerText = "Categoria: " + unProducto.categoría;
+    tarjeta.appendChild(categoriaProducto);
 
-//Boton
-const botonAgregar = document.createElement('button');
-botonAgregar.setAttribute("id", "botonAgregar");
-botonAgregar.innerText = "Agregar al carrito";
-tarjeta.appendChild(botonAgregar);
+    //Boton
+    const botonAgregar = document.createElement('button');
+    botonAgregar.setAttribute("class", "botonAgregar");
+    botonAgregar.setAttribute("id", unProducto.id)
+    botonAgregar.setAttribute("onclick", "AgregarCarrito(this.id);");
+    botonAgregar.innerText = "Agregar al carrito";
+    tarjeta.appendChild(botonAgregar);
 
 });
 
+const carrito = [];
+
+
+//Fusion agregar al carro
+const AgregarCarrito = (e) => {
+
+    let Id = e;
+   
+    productos.forEach(producto => {
+
+        if (Id == producto.id) {
+
+            carrito.push(producto);
+
+        }
+       })
+
+    console.log(carrito);
+}
+
+const verCarrito = () => {
+
+
+
+
+}
