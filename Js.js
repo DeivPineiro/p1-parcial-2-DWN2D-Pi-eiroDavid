@@ -56,29 +56,29 @@ let productos = [
 
 ];
 
-const unProducto = productos[1];
+//const unProducto = productos[1];
 
-console.log(unProducto);
+//console.log(unProducto);
 
 const listaProductos = document.getElementById("listaDeProductos");
 
-
+productos.forEach(unProducto => {
 //tarjeta
 const tarjeta = document.createElement('div');
 tarjeta.setAttribute ("class", "tarjeta");
 tarjeta.setAttribute ("id", unProducto.id)
 listaProductos.appendChild(tarjeta);
 
+//titulo
+const tituloTarjeta = document.createElement('h3');
+tituloTarjeta.innerText = unProducto.nombre;
+tarjeta.appendChild(tituloTarjeta);
+
 //imagen
 const imagenProducto = document.createElement('img');
 imagenProducto.setAttribute ("src", "producto-de-ejemplo.jpg");
 imagenProducto.setAttribute ("alt", "producto-de-ejemplo");
 tarjeta.appendChild(imagenProducto);
-
-//titulo
-const tituloTarjeta = document.createElement('h3');
-tituloTarjeta.innerText = unProducto.nombre;
-tarjeta.appendChild(tituloTarjeta);
 
 //descripcion
 const descripcionProducto = document.createElement('p');
@@ -95,6 +95,5 @@ const categoriaProducto = document.createElement('p')
 categoriaProducto.innerText = "Categoria: " + unProducto.categoría;
 tarjeta.appendChild(categoriaProducto);
 
-
-
+});
 
