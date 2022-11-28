@@ -99,35 +99,137 @@ productos.forEach(unProducto => {
     const botonAgregar = document.createElement('button');
     botonAgregar.setAttribute("class", "botonAgregar");
     botonAgregar.setAttribute("id", unProducto.id)
-    botonAgregar.setAttribute("onclick", "AgregarCarrito(this.id);");
+    botonAgregar.setAttribute("onclick", "Agregar(this.id);");
     botonAgregar.innerText = "Agregar al carrito";
     tarjeta.appendChild(botonAgregar);
 
 });
 
+
+
+
+
+
+
+
+
+/* Generar el div#modalProducto y su contenido dinámicamente
+        <div class="modal" id="modalProducto">
+            <a class="cerrar" href="javascript:void(0)">X</a>
+            <img src="producto-de-ejemplo.jpg" alt="Nombre del producto" />
+            <h3>Producto</h3>
+            <p>Descripción</p>
+            <p>Precio: <span>$0</span></p>
+            <p>Categoría</p>
+            <button>Agregar</button>
+        </div> */
+
+
+
+
+
+
+//Funcion agregar al carro
 const carrito = [];
-
-
-//Fusion agregar al carro
-const AgregarCarrito = (e) => {
+const Agregar = (e) => {
 
     let Id = e;
-   
-    productos.forEach(producto => {
 
-        if (Id == producto.id) {
+    productos.forEach(unProducto => {
 
-            carrito.push(producto);
+
+
+        if (Id == unProducto.id) {
+            //div   
+            const tarjetaProd = document.createElement('div');
+            tarjetaProd.setAttribute("class", "modal");
+            tarjetaProd.setAttribute("id", unProducto.id)
+            listaProductos.appendChild(tarjetaProd);
+
+            //Link Cerrar
+            const cerrarTarjetaProd = document.createElement('a');
+            cerrarTarjetaProd.setAttribute("class", "cerrar");
+            cerrarTarjetaProd.setAttribute("href", "cerrarModal();");
+            cerrarTarjetaProd.innerText = "X";
+            tarjetaProd.appendChild(cerrarTarjetaProd);
+
+            //Imagen
+            const imagenProd = document.createElement('img');
+            imagenProd.setAttribute("src", "producto-de-ejemplo.jpg");
+            imagenProd.setAttribute("alt", "producto-de-ejemplo");
+            tarjetaProd.appendChild(imagenProd);
+
+            //Titulo
+            const tituloTarj = document.createElement('h3');
+            tituloTarj.innerText = unProducto.nombre;
+            tarjetaProd.appendChild(tituloTarj);
+
+            //Descripcion
+            const descripcionProd = document.createElement('p');
+            descripcionProd.innerText = unProducto.descripcion;
+            tarjetaProd.appendChild(descripcionProd);
+
+            //precio
+            const precioProd = document.createElement('p')
+            precioProd.innerText = "Precio: " + unProducto.precio;
+            tarjetaProd.appendChild(precioProd);
+
+            //Categoria
+            const categoriaProd = document.createElement('p')
+            categoriaProd.innerText = "Categoria: " + unProducto.categoría;
+            tarjetaProd.appendChild(categoriaProd);
+
+            //Boton
+            const botonAdd = document.createElement('button');
+            botonAdd.setAttribute("class", "botonAdd");
+            botonAdd.setAttribute("id", unProducto.id)
+            botonAdd.setAttribute("onclick", "agregarCarrito(this.id);");
+            botonAdd.innerText = "Agregar al carrito";
+            tarjetaProd.appendChild(botonAdd);
+
 
         }
-       })
+    })
 
-    console.log(carrito);
+    const div = document.getElementsByClassName('#modal');
+
+    console.log(div);
+
+    const agregarCarrito = (a) => {
+
+        const Id = a;
+
+        productos.forEach(unProducto => {
+            if (Id == productos.id) {
+
+                carrito.push(unProducto);
+
+            }
+
+        });
+       
+
+    }
+
+
 }
 
-const verCarrito = () => {
+
+
+/*
+const cerrarModal = () => {
+
+const div = getElementById('#modal');
+
 
 
 
 
 }
+*/
+
+
+
+
+
+//console.log(carrito);
