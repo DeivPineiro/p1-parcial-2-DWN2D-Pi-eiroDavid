@@ -95,5 +95,11 @@ const categoriaProducto = document.createElement('p')
 categoriaProducto.innerText = "Categoria: " + unProducto.categoría;
 tarjeta.appendChild(categoriaProducto);
 
+//Boton
+const botonAgregar = document.createElement('button');
+botonAgregar.setAttribute("id", "botonAgregar");
+botonAgregar.innerText = "Agregar al carrito";
+tarjeta.appendChild(botonAgregar);
+
 });
 
