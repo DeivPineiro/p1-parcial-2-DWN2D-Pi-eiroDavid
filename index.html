@@ -1,41 +1,44 @@
+<!doctype html>
+<html>
 
-    <!doctype html>
-    <html>
-        <head>
-            <meta charset="utf-8" />
-            <title>Programación I | Parcial 2 | Piñeiro</title>
-            <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
-            <link rel="shortcut icon" href="favicon.ico" />
-            <link rel="stylesheet" href="styles.css" />
-         
-        </head>
+<head>
+    <meta charset="utf-8" />
+    <title>Programación I | Parcial 2 | Piñeiro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" href="styles.css" />
 
-    <body>
-        <header>
-            <h1>Programación I | Parcial 2 | Piñeiro David | Mi carrito</h1>
-        </header>
-        <main>
-            <div id="minicarrito" class="mCarr">
-                <p><span class="iT">0</span> ítems agregados</p>
-                <p>$<span class="pT">0</span> es el total</p>
-                <p>Filtrar por <a href="#">Categoría 1</a> | <a href="#">Categoría 2</a> | <a href="#">Categoría 3</a></p>
-                <button onclick="verCarrito();">Ver carrito</button>
-            </div>
-            <h2>Productos</h2>
-            <div id="listaDeProductos"></div>
-                   
-        </main>
-        <footer>
-            <ul>
-                <li>Profesor Sergio Medina</li>
-                <li>
-                    <a href="mailto:sergiod.medina@davinci.edu.ar?subject=P1%20-%20Consulta%20-%20DW2[M|T|N][A|B]%20-%20Apellido,%20Nombre" target="_blank">sergiod.medina@davinci.edu.ar</a>
-                </li>
-                <li>Programación 1</li>
-            </ul>
-        </footer>
+</head>
 
-        <!-- Generar el div#modalProducto y su contenido dinámicamente
+<body>
+    <header>
+        <h1>Programación I | Parcial 2 | Piñeiro David | Mi carrito</h1>
+    </header>
+    <main>
+        <div id="minicarrito" class="mCarr">
+            <p><span class="iT">0</span> ítems agregados</p>
+            <p>$<span class="pT">0</span> es el total</p>
+            <p>Filtrar por <a href="javascript:fA()">Categoría A</a> | <a href="javascript:fB()">Categoría B</a> | <a
+                    href="javascript:fC()">Categoría C</a> | <a
+                    href="javascript:fT()">Todos los productos</a></p>
+            <button onclick="verCarrito();">Ver carrito</button>
+        </div>
+        <h2>Productos</h2>
+        <div id="listaDeProductos" class="listaDeProductos"></div>
+
+    </main>
+    <footer>
+        <ul>
+            <li>Profesor Sergio Medina</li>
+            <li>
+                <a href="mailto:sergiod.medina@davinci.edu.ar?subject=P1%20-%20Consulta%20-%20DW2[M|T|N][A|B]%20-%20Apellido,%20Nombre"
+                    target="_blank">sergiod.medina@davinci.edu.ar</a>
+            </li>
+            <li>Programación 1</li>
+        </ul>
+    </footer>
+
+    <!-- Generar el div#modalProducto y su contenido dinámicamente
         <div class="modal" id="modalProducto">
             <a class="cerrar" href="javascript:void(0)">X</a>
             <img src="producto-de-ejemplo.jpg" alt="Nombre del producto" />
@@ -46,7 +49,7 @@
             <button>Agregar</button>
         </div> -->
 
-        <!-- Generar el div#modalCarrito y su contenido dinámicamente
+    <!-- Generar el div#modalCarrito y su contenido dinámicamente
         <div class="modal" id="modalCarrito">
             <a class="cerrar" href="javascript:void(0)">X</a>
             <p>Items: <span>3</span> - Total: <span>$0</span></p>
@@ -58,7 +61,8 @@
             </ul>
             <button>Vaciar</button>
             <button>Ir al checkout</button>-->
-        </div> 
-        <script src="Js.js"></script>
-    </body>
+    </div>
+    <script src="Js.js"></script>
+</body>
+
 </html>

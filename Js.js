@@ -105,6 +105,237 @@ productos.forEach(unProducto => {
 
 });
 
+//Funciones de filtrado
+
+//Todos los productos
+
+const fT = () => {
+
+    let elemento = document.getElementById("listaDeProductos");
+    while (elemento.firstChild) {
+        elemento.removeChild(elemento.firstChild);
+    }
+
+    productos.forEach(unProducto => {
+        //tarjeta
+        const tarjeta = document.createElement('div');
+        tarjeta.setAttribute("class", "tarjeta");
+        tarjeta.setAttribute("id", unProducto.id)
+        listaProductos.appendChild(tarjeta);
+    
+        //titulo
+        const tituloTarjeta = document.createElement('h3');
+        tituloTarjeta.innerText = unProducto.nombre;
+        tarjeta.appendChild(tituloTarjeta);
+    
+        //imagen
+        const imagenProducto = document.createElement('img');
+        imagenProducto.setAttribute("src", "producto-de-ejemplo.jpg");
+        imagenProducto.setAttribute("alt", "producto-de-ejemplo");
+        tarjeta.appendChild(imagenProducto);
+    
+        //descripcion
+        const descripcionProducto = document.createElement('p');
+        descripcionProducto.innerText = unProducto.descripcion;
+        tarjeta.appendChild(descripcionProducto);
+    
+        //precio
+        const precioProducto = document.createElement('p')
+        precioProducto.innerText = "Precio: " + unProducto.precio;
+        tarjeta.appendChild(precioProducto);
+    
+        //Categoria
+        const categoriaProducto = document.createElement('p')
+        categoriaProducto.innerText = "Categoria: " + unProducto.categoría;
+        tarjeta.appendChild(categoriaProducto);
+    
+        //Boton
+        const botonAgregar = document.createElement('button');
+        botonAgregar.setAttribute("class", "botonAgregar");
+        botonAgregar.setAttribute("id", unProducto.id)
+        botonAgregar.setAttribute("onclick", "Agregar(this.id);");
+        botonAgregar.innerText = "Agregar al carrito";
+        tarjeta.appendChild(botonAgregar);
+    
+    });
+
+}
+
+
+//Filtrado A
+const fA = () => {
+
+    let elemento = document.getElementById("listaDeProductos");
+    while (elemento.firstChild) {
+        elemento.removeChild(elemento.firstChild);
+    }
+    productos.forEach(unProducto => {
+
+        if (unProducto.categoría == "A") {
+
+
+
+            //tarjeta
+            const tarjeta = document.createElement('div');
+            tarjeta.setAttribute("class", "tarjeta");
+            tarjeta.setAttribute("id", unProducto.id)
+            listaProductos.appendChild(tarjeta);
+
+            //titulo
+            const tituloTarjeta = document.createElement('h3');
+            tituloTarjeta.innerText = unProducto.nombre;
+            tarjeta.appendChild(tituloTarjeta);
+
+            //imagen
+            const imagenProducto = document.createElement('img');
+            imagenProducto.setAttribute("src", "producto-de-ejemplo.jpg");
+            imagenProducto.setAttribute("alt", "producto-de-ejemplo");
+            tarjeta.appendChild(imagenProducto);
+
+            //descripcion
+            const descripcionProducto = document.createElement('p');
+            descripcionProducto.innerText = unProducto.descripcion;
+            tarjeta.appendChild(descripcionProducto);
+
+            //precio
+            const precioProducto = document.createElement('p')
+            precioProducto.innerText = "Precio: " + unProducto.precio;
+            tarjeta.appendChild(precioProducto);
+
+            //Categoria
+            const categoriaProducto = document.createElement('p')
+            categoriaProducto.innerText = "Categoria: " + unProducto.categoría;
+            tarjeta.appendChild(categoriaProducto);
+
+            //Boton
+            const botonAgregar = document.createElement('button');
+            botonAgregar.setAttribute("class", "botonAgregar");
+            botonAgregar.setAttribute("id", unProducto.id)
+            botonAgregar.setAttribute("onclick", "Agregar(this.id);");
+            botonAgregar.innerText = "Agregar al carrito";
+            tarjeta.appendChild(botonAgregar);
+        }
+    });
+
+
+}
+
+//filtrado Categoria B
+const fB = () => {
+
+    let elemento = document.getElementById("listaDeProductos");
+    while (elemento.firstChild) {
+        elemento.removeChild(elemento.firstChild);
+    }
+
+    productos.forEach(unProducto => {
+
+        if (unProducto.categoría == "B") {
+
+
+
+            //tarjeta
+            const tarjeta = document.createElement('div');
+            tarjeta.setAttribute("class", "tarjeta");
+            tarjeta.setAttribute("id", unProducto.id)
+            listaProductos.appendChild(tarjeta);
+
+            //titulo
+            const tituloTarjeta = document.createElement('h3');
+            tituloTarjeta.innerText = unProducto.nombre;
+            tarjeta.appendChild(tituloTarjeta);
+
+            //imagen
+            const imagenProducto = document.createElement('img');
+            imagenProducto.setAttribute("src", "producto-de-ejemplo.jpg");
+            imagenProducto.setAttribute("alt", "producto-de-ejemplo");
+            tarjeta.appendChild(imagenProducto);
+
+            //descripcion
+            const descripcionProducto = document.createElement('p');
+            descripcionProducto.innerText = unProducto.descripcion;
+            tarjeta.appendChild(descripcionProducto);
+
+            //precio
+            const precioProducto = document.createElement('p')
+            precioProducto.innerText = "Precio: " + unProducto.precio;
+            tarjeta.appendChild(precioProducto);
+
+            //Categoria
+            const categoriaProducto = document.createElement('p')
+            categoriaProducto.innerText = "Categoria: " + unProducto.categoría;
+            tarjeta.appendChild(categoriaProducto);
+
+            //Boton
+            const botonAgregar = document.createElement('button');
+            botonAgregar.setAttribute("class", "botonAgregar");
+            botonAgregar.setAttribute("id", unProducto.id)
+            botonAgregar.setAttribute("onclick", "Agregar(this.id);");
+            botonAgregar.innerText = "Agregar al carrito";
+            tarjeta.appendChild(botonAgregar);
+        }
+    });
+
+}
+// Filtrado Categoria C
+const fC = () => {
+
+    let elemento = document.getElementById("listaDeProductos");
+    while (elemento.firstChild) {
+        elemento.removeChild(elemento.firstChild);
+    }
+
+    productos.forEach(unProducto => {
+
+        if (unProducto.categoría == "C") {
+
+
+
+            //tarjeta
+            const tarjeta = document.createElement('div');
+            tarjeta.setAttribute("class", "tarjeta");
+            tarjeta.setAttribute("id", unProducto.id)
+            listaProductos.appendChild(tarjeta);
+
+            //titulo
+            const tituloTarjeta = document.createElement('h3');
+            tituloTarjeta.innerText = unProducto.nombre;
+            tarjeta.appendChild(tituloTarjeta);
+
+            //imagen
+            const imagenProducto = document.createElement('img');
+            imagenProducto.setAttribute("src", "producto-de-ejemplo.jpg");
+            imagenProducto.setAttribute("alt", "producto-de-ejemplo");
+            tarjeta.appendChild(imagenProducto);
+
+            //descripcion
+            const descripcionProducto = document.createElement('p');
+            descripcionProducto.innerText = unProducto.descripcion;
+            tarjeta.appendChild(descripcionProducto);
+
+            //precio
+            const precioProducto = document.createElement('p')
+            precioProducto.innerText = "Precio: " + unProducto.precio;
+            tarjeta.appendChild(precioProducto);
+
+            //Categoria
+            const categoriaProducto = document.createElement('p')
+            categoriaProducto.innerText = "Categoria: " + unProducto.categoría;
+            tarjeta.appendChild(categoriaProducto);
+
+            //Boton
+            const botonAgregar = document.createElement('button');
+            botonAgregar.setAttribute("class", "botonAgregar");
+            botonAgregar.setAttribute("id", unProducto.id)
+            botonAgregar.setAttribute("onclick", "Agregar(this.id);");
+            botonAgregar.innerText = "Agregar al carrito";
+            tarjeta.appendChild(botonAgregar);
+        }
+    });
+
+}
+
+
 //Funcion agregar al carro
 //Agregar Carrito
 const carrito = [];
@@ -138,6 +369,12 @@ const agregarCarrito = (a) => {
 
 }
 
+const close = () => {
+
+    //Cierro modal
+    page.style.display = "none";
+
+}
 
 //Boton agregar que crea y abre modal
 const Agregar = (e) => {
@@ -160,7 +397,11 @@ const Agregar = (e) => {
             cerrarTarjetaProd.innerText = "X";
             tarjetaProd.appendChild(cerrarTarjetaProd);
             cerrarTarjetaProd.addEventListener("click", (event) => {
+
+                //Cierro modal
                 page.style.display = "none";
+
+
             });
 
 
@@ -203,32 +444,30 @@ const Agregar = (e) => {
 
     //Cerrar modal
     const page = document.getElementById("pageModal");
-    
-
-
 
 
 }
 
- // funcion eliminar item del carro
- const eliminarItem = (e) =>{
+// funcion eliminar item del carro
+const eliminarItem = (e) => {
 
     const listaDeItems = document.getElementsByClassName("item");
     console.log(listaDeItems);
-   
+
     for (let i = 0; i < listaDeItems.length; i++) {
-       
-        if(listaDeItems[i].id == e)
-        {
+
+        if (listaDeItems[i].id == e) {
             listaDeItems[i].remove();
+            carrito.splice(e, 1);
+
         }
 
-        
+
     }
-         
+
 }
 
-//let precioTotal = 0;
+
 const verCarrito = () => {
 
     let precioTotal = 0;
@@ -248,7 +487,27 @@ const verCarrito = () => {
     cerrarTarjetaCarr.innerText = "X";
     tarjetaCarr.appendChild(cerrarTarjetaCarr);
     cerrarTarjetaCarr.addEventListener("click", (event) => {
+
+        //act mini carr
+        let miniTot = 0;
+        let minIte = 0;
+        const mCarr = document.getElementById("minicarrito");
+
+        carrito.forEach(unProducto => {
+            miniTot = miniTot + unProducto.precio;
+            minIte++;
+        });
+
+        const tMini = mCarr.querySelector(".pT");
+        tMini.innerHTML = miniTot;
+
+        const iMini = mCarr.querySelector(".iT");
+        iMini.innerHTML = minIte;
+
+        // Cerrar modal
         pageCarr.style.display = "none";
+
+
     });
 
     let idItem = 0;
@@ -278,8 +537,6 @@ const verCarrito = () => {
         eliminar.setAttribute("onclick", "eliminarItem(this.id);");
         eliminar.innerText = "Eliminar Item";
         itemCarr.appendChild(eliminar);
-       // eliminar.addEventListener("click", (event) => {
-        //});
 
         idItem++;
         precioTotal = precioTotal + unProducto.precio;
@@ -294,7 +551,7 @@ const verCarrito = () => {
     precioTot.innerText = "Precio Total: " + precioTotal;
     tarjetaCarr.appendChild(precioTot);
 
-   
+
     const listaDeItems = document.getElementsByClassName("item");
     console.log(listaDeItems);
 
