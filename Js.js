@@ -105,21 +105,7 @@ productos.forEach(unProducto => {
 
 });
 
-/* Generar el div#modalProducto y su contenido dinámicamente
-        <div class="modal" id="modalProducto">
-            <a class="cerrar" href="javascript:void(0)">X</a>
-            <img src="producto-de-ejemplo.jpg" alt="Nombre del producto" />
-            <h3>Producto</h3>
-            <p>Descripción</p>
-            <p>Precio: <span>$0</span></p>
-            <p>Categoría</p>
-            <button>Agregar</button>
-        </div> */
-
 //Funcion agregar al carro
-
-
-
 //Agregar Carrito
 const carrito = [];
 
@@ -135,32 +121,26 @@ const agregarCarrito = (a) => {
         }
 
     });
-    console.log(carrito);
+ 
+    // Modificar precio mini carrito
+    let miniTot = 0;
+    const mCarr = document.getElementById("minicarrito");
 
+    carrito.forEach(unProducto => {
+        miniTot = miniTot + unProducto.precio;
+    });
+
+    const tMini = mCarr.querySelector(".pT");
+    tMini.innerHTML = miniTot;
+  
+    const iMini = mCarr.querySelector(".iT");
+    iMini.innerHTML = (parseInt(iMini.innerHTML) + 1);
+  
 }
 
-//cerrar modal
-const cerrarModal = () => {
 
-    page.style.display = "none";
-    const btnCerrar = page.querySelector("page > a");
-    
-    btnCerrar.addEventListener("click", (event) => {
-    
-    
-    page.style.display = "none";
-    
-    });
-    
-    
-    
-    
-    }
-
+//Boton agregar que crea y abre modal
 const Agregar = (e) => {
-
-
-
 
     let Id = e;
 
@@ -180,12 +160,9 @@ const Agregar = (e) => {
             cerrarTarjetaProd.innerText = "X";
             tarjetaProd.appendChild(cerrarTarjetaProd);
             cerrarTarjetaProd.addEventListener("click", (event) => {
-    
-    
                 page.style.display = "none";
-                
             });
-            
+
 
             //Imagen
             const imagenProd = document.createElement('img');
@@ -221,18 +198,90 @@ const Agregar = (e) => {
             botonAdd.innerText = "Agregar al carrito";
             tarjetaProd.appendChild(botonAdd);
 
-
         }
     });
 
-//Cerrar modal
-const page = document.getElementById("pageModal");
-console.log(page);
+    //Cerrar modal
+    const page = document.getElementById("pageModal");
+    console.log(page);
+
+    
+
 
 }
-/*
-const cerrarModal = () => {
-const div = getElementById('#modal');
+
+//let precioTotal = 0;
+const verCarrito = () => {
+
+    let precioTotal = 0;
+
+
+    //div   
+    const tarjetaCarr = document.createElement('div');
+    tarjetaCarr.setAttribute("class", "modal");
+    tarjetaCarr.setAttribute("id", "pageCarr")
+    listaProductos.appendChild(tarjetaCarr);
+
+    //Link Cerrar
+    const pageCarr = document.getElementById("pageCarr");
+    console.log(pageCarr);
+    const cerrarTarjetaCarr = document.createElement('a');
+    cerrarTarjetaCarr.setAttribute("class", "cerrar");
+    cerrarTarjetaCarr.setAttribute("id", "cerrarModal");
+    cerrarTarjetaCarr.innerText = "X";
+    tarjetaCarr.appendChild(cerrarTarjetaCarr);
+    cerrarTarjetaCarr.addEventListener("click", (event) => {
+        pageCarr.style.display = "none";
+    });
+
+    carrito.forEach(unProducto => {
+
+
+        //Titulo
+        const tituloTarj = document.createElement('h3');
+        tituloTarj.innerText = unProducto.nombre;
+        tarjetaCarr.appendChild(tituloTarj);
+
+        //precio
+        const precioProd = document.createElement('p')
+        precioProd.innerText = "Precio: " + unProducto.precio;
+        tarjetaCarr.appendChild(precioProd);
+
+        precioTotal = precioTotal + unProducto.precio;
+
+
+
+
+    });
+
+    //precio total
+    const precioTot = document.createElement('p')
+    precioTot.innerText = "Precio Total: " + precioTotal;
+    tarjetaCarr.appendChild(precioTot);
+
+
 }
+
+
+//MiniCarrito 
+
+
+/*
+let miniTot = 0;
+const mCarr = document.getElementById("minicarrito");
+carrito.forEach(unProducto =>{
+
+    miniTot = miniTot + unProducto.precio;
+
+});
+
+console.log(mCarr);
+
+const tMini = mCarr.querySelector(".pT");
+
+tMini.innerHTML = miniTot;
+//console.log(miniTot);
+//console.log(tMini.innerHTML);
 */
-//console.log(carrito);
+
+
