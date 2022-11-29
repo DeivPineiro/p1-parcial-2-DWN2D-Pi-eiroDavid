@@ -331,8 +331,15 @@
  }
  
  .modal a {
-     text-decoration: none;
-     color: #d0e0e3;
+    
+     color: #ff6600;
+ }
+
+ .modal a:hover{
+
+    color: #ff0000;
+    cursor: pointer;
+
  }
  
  .modal a.cerrar {

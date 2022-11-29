@@ -121,7 +121,7 @@ const agregarCarrito = (a) => {
         }
 
     });
- 
+
     // Modificar precio mini carrito
     let miniTot = 0;
     const mCarr = document.getElementById("minicarrito");
@@ -132,10 +132,10 @@ const agregarCarrito = (a) => {
 
     const tMini = mCarr.querySelector(".pT");
     tMini.innerHTML = miniTot;
-  
+
     const iMini = mCarr.querySelector(".iT");
     iMini.innerHTML = (parseInt(iMini.innerHTML) + 1);
-  
+
 }
 
 
@@ -203,11 +203,29 @@ const Agregar = (e) => {
 
     //Cerrar modal
     const page = document.getElementById("pageModal");
-    console.log(page);
-
     
 
 
+
+
+}
+
+ // funcion eliminar item del carro
+ const eliminarItem = (e) =>{
+
+    const listaDeItems = document.getElementsByClassName("item");
+    console.log(listaDeItems);
+   
+    for (let i = 0; i < listaDeItems.length; i++) {
+       
+        if(listaDeItems[i].id == e)
+        {
+            listaDeItems[i].remove();
+        }
+
+        
+    }
+         
 }
 
 //let precioTotal = 0;
@@ -224,7 +242,6 @@ const verCarrito = () => {
 
     //Link Cerrar
     const pageCarr = document.getElementById("pageCarr");
-    console.log(pageCarr);
     const cerrarTarjetaCarr = document.createElement('a');
     cerrarTarjetaCarr.setAttribute("class", "cerrar");
     cerrarTarjetaCarr.setAttribute("id", "cerrarModal");
@@ -234,19 +251,37 @@ const verCarrito = () => {
         pageCarr.style.display = "none";
     });
 
+    let idItem = 0;
+
     carrito.forEach(unProducto => {
 
+        //div 
+        const itemCarr = document.createElement('div');
+        itemCarr.setAttribute("class", "item");
+        itemCarr.setAttribute("id", idItem)
+        tarjetaCarr.appendChild(itemCarr);
 
         //Titulo
         const tituloTarj = document.createElement('h3');
         tituloTarj.innerText = unProducto.nombre;
-        tarjetaCarr.appendChild(tituloTarj);
+        itemCarr.appendChild(tituloTarj);
 
         //precio
         const precioProd = document.createElement('p')
         precioProd.innerText = "Precio: " + unProducto.precio;
-        tarjetaCarr.appendChild(precioProd);
+        itemCarr.appendChild(precioProd);
 
+        // eliminar 
+        const eliminar = document.createElement('button');
+        eliminar.setAttribute("class", "eliminarItem");
+        eliminar.setAttribute("id", idItem);
+        eliminar.setAttribute("onclick", "eliminarItem(this.id);");
+        eliminar.innerText = "Eliminar Item";
+        itemCarr.appendChild(eliminar);
+       // eliminar.addEventListener("click", (event) => {
+        //});
+
+        idItem++;
         precioTotal = precioTotal + unProducto.precio;
 
 
@@ -258,6 +293,10 @@ const verCarrito = () => {
     const precioTot = document.createElement('p')
     precioTot.innerText = "Precio Total: " + precioTotal;
     tarjetaCarr.appendChild(precioTot);
+
+   
+    const listaDeItems = document.getElementsByClassName("item");
+    console.log(listaDeItems);
 
 
 }
