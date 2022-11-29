@@ -559,25 +559,5 @@ const verCarrito = () => {
 }
 
 
-//MiniCarrito 
-
-
-/*
-let miniTot = 0;
-const mCarr = document.getElementById("minicarrito");
-carrito.forEach(unProducto =>{
-
-    miniTot = miniTot + unProducto.precio;
-
-});
-
-console.log(mCarr);
-
-const tMini = mCarr.querySelector(".pT");
-
-tMini.innerHTML = miniTot;
-//console.log(miniTot);
-//console.log(tMini.innerHTML);
-*/
 
 
