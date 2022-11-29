@@ -105,14 +105,6 @@ productos.forEach(unProducto => {
 
 });
 
-
-
-
-
-
-
-
-
 /* Generar el div#modalProducto y su contenido dinámicamente
         <div class="modal" id="modalProducto">
             <a class="cerrar" href="javascript:void(0)">X</a>
@@ -124,34 +116,76 @@ productos.forEach(unProducto => {
             <button>Agregar</button>
         </div> */
 
-
-
-
-
-
 //Funcion agregar al carro
+
+
+
+//Agregar Carrito
 const carrito = [];
+
+const agregarCarrito = (a) => {
+
+    const Id = a;
+
+    productos.forEach(unProducto => {
+        if (Id == unProducto.id) {
+
+            carrito.push(unProducto);
+
+        }
+
+    });
+    console.log(carrito);
+
+}
+
+//cerrar modal
+const cerrarModal = () => {
+
+    page.style.display = "none";
+    const btnCerrar = page.querySelector("page > a");
+    
+    btnCerrar.addEventListener("click", (event) => {
+    
+    
+    page.style.display = "none";
+    
+    });
+    
+    
+    
+    
+    }
+
 const Agregar = (e) => {
+
+
+
 
     let Id = e;
 
     productos.forEach(unProducto => {
 
-
-
         if (Id == unProducto.id) {
             //div   
             const tarjetaProd = document.createElement('div');
             tarjetaProd.setAttribute("class", "modal");
-            tarjetaProd.setAttribute("id", unProducto.id)
+            tarjetaProd.setAttribute("id", "pageModal")
             listaProductos.appendChild(tarjetaProd);
 
             //Link Cerrar
             const cerrarTarjetaProd = document.createElement('a');
             cerrarTarjetaProd.setAttribute("class", "cerrar");
-            cerrarTarjetaProd.setAttribute("href", "cerrarModal();");
+            cerrarTarjetaProd.setAttribute("id", "cerrarModal");
             cerrarTarjetaProd.innerText = "X";
             tarjetaProd.appendChild(cerrarTarjetaProd);
+            cerrarTarjetaProd.addEventListener("click", (event) => {
+    
+    
+                page.style.display = "none";
+                
+            });
+            
 
             //Imagen
             const imagenProd = document.createElement('img');
@@ -189,47 +223,16 @@ const Agregar = (e) => {
 
 
         }
-    })
+    });
 
-    const div = document.getElementsByClassName('#modal');
-
-    console.log(div);
-
-    const agregarCarrito = (a) => {
-
-        const Id = a;
-
-        productos.forEach(unProducto => {
-            if (Id == productos.id) {
-
-                carrito.push(unProducto);
-
-            }
-
-        });
-       
-
-    }
-
+//Cerrar modal
+const page = document.getElementById("pageModal");
+console.log(page);
 
 }
-
-
-
 /*
 const cerrarModal = () => {
-
 const div = getElementById('#modal');
-
-
-
-
-
 }
 */
-
-
-
-
-
 //console.log(carrito);
