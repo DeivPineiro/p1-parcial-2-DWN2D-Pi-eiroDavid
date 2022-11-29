@@ -56,10 +56,6 @@ let productos = [
 
 ];
 
-//const unProducto = productos[1];
-
-//console.log(unProducto);
-
 const listaProductos = document.getElementById("listaDeProductos");
 
 productos.forEach(unProducto => {
@@ -467,7 +463,7 @@ const eliminarItem = (e) => {
 
 }
 
-
+// Funcion Ver Carrito
 const verCarrito = () => {
 
     let precioTotal = 0;
@@ -488,7 +484,7 @@ const verCarrito = () => {
     tarjetaCarr.appendChild(cerrarTarjetaCarr);
     cerrarTarjetaCarr.addEventListener("click", (event) => {
 
-        //act mini carr
+        //actualizar minicarrito
         let miniTot = 0;
         let minIte = 0;
         const mCarr = document.getElementById("minicarrito");
