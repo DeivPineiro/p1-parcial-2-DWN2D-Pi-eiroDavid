@@ -118,33 +118,33 @@ const fT = () => {
         tarjeta.setAttribute("class", "tarjeta");
         tarjeta.setAttribute("id", unProducto.id)
         listaProductos.appendChild(tarjeta);
-    
+
         //titulo
         const tituloTarjeta = document.createElement('h3');
         tituloTarjeta.innerText = unProducto.nombre;
         tarjeta.appendChild(tituloTarjeta);
-    
+
         //imagen
         const imagenProducto = document.createElement('img');
         imagenProducto.setAttribute("src", "producto-de-ejemplo.jpg");
         imagenProducto.setAttribute("alt", "producto-de-ejemplo");
         tarjeta.appendChild(imagenProducto);
-    
+
         //descripcion
         const descripcionProducto = document.createElement('p');
         descripcionProducto.innerText = unProducto.descripcion;
         tarjeta.appendChild(descripcionProducto);
-    
+
         //precio
         const precioProducto = document.createElement('p')
         precioProducto.innerText = "Precio: " + unProducto.precio;
         tarjeta.appendChild(precioProducto);
-    
+
         //Categoria
         const categoriaProducto = document.createElement('p')
         categoriaProducto.innerText = "Categoria: " + unProducto.categoría;
         tarjeta.appendChild(categoriaProducto);
-    
+
         //Boton
         const botonAgregar = document.createElement('button');
         botonAgregar.setAttribute("class", "botonAgregar");
@@ -152,7 +152,7 @@ const fT = () => {
         botonAgregar.setAttribute("onclick", "Agregar(this.id);");
         botonAgregar.innerText = "Agregar al carrito";
         tarjeta.appendChild(botonAgregar);
-    
+
     });
 
 }
@@ -463,11 +463,10 @@ const eliminarItem = (e) => {
 
 }
 
-// Funcion Ver Carrito
-const verCarrito = () => {
 
-    let precioTotal = 0;
+//Crear modal de carrito
 
+const cargarModalCarrito = () => {
 
     //div   
     const tarjetaCarr = document.createElement('div');
@@ -506,6 +505,16 @@ const verCarrito = () => {
 
     });
 
+
+}
+
+
+// Funcion Ver Carrito
+const verCarrito = () => {
+
+    pageCarr.style.display = "block"; // Se habilitaria nuevamente el display del modal
+    cargarModalCarrito();  // Se agrega funcion para resolver problema que no se ejecuta mas de una ves el evento de cerrar
+    let precioTotal = 0;
     let idItem = 0;
 
     carrito.forEach(unProducto => {
