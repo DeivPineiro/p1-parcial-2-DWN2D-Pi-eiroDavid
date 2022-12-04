@@ -365,14 +365,28 @@ const agregarCarrito = (a) => {
 
 }
 
-const close = () => {
+/*const close = () => {
 
+
+    //Vaciar pantalla
+    
     //Cierro modal
     page.style.display = "none";
+    
 
-}
+}*/
 
 //Boton agregar que crea y abre modal
+
+//div   
+const tarjetaProd = document.createElement('div');
+
+tarjetaProd.setAttribute("class", "modal");
+tarjetaProd.setAttribute("id", "pageModal");
+listaProductos.appendChild(tarjetaProd);
+const page = document.getElementById("pageModal");
+page.style.display = "none";
+
 const Agregar = (e) => {
 
     let Id = e;
@@ -380,13 +394,11 @@ const Agregar = (e) => {
     productos.forEach(unProducto => {
 
         if (Id == unProducto.id) {
-            //div   
-            const tarjetaProd = document.createElement('div');
-            tarjetaProd.setAttribute("class", "modal");
-            tarjetaProd.setAttribute("id", "pageModal")
-            listaProductos.appendChild(tarjetaProd);
+
 
             //Link Cerrar
+            const page = document.getElementById("pageModal");
+            page.style.display = "block";
             const cerrarTarjetaProd = document.createElement('a');
             cerrarTarjetaProd.setAttribute("class", "cerrar");
             cerrarTarjetaProd.setAttribute("id", "cerrarModal");
@@ -394,6 +406,12 @@ const Agregar = (e) => {
             tarjetaProd.appendChild(cerrarTarjetaProd);
             cerrarTarjetaProd.addEventListener("click", (event) => {
 
+
+                //Vacio lo del modal para que  no me lo muestre nuevamente en el proximo OPEN
+                let elemento = document.getElementById("pageModal");
+                while (elemento.firstChild) {
+                    elemento.removeChild(elemento.firstChild);
+                }
                 //Cierro modal
                 page.style.display = "none";
 
@@ -439,7 +457,7 @@ const Agregar = (e) => {
     });
 
     //Cerrar modal
-    const page = document.getElementById("pageModal");
+
 
 
 }
@@ -464,18 +482,30 @@ const eliminarItem = (e) => {
 }
 
 
-//Crear modal de carrito
 
-const cargarModalCarrito = () => {
 
+
+
+
+const tarjetaCarr = document.createElement('div');
+tarjetaCarr.setAttribute("class", "modal");
+tarjetaCarr.setAttribute("id", "pageCarr")
+listaProductos.appendChild(tarjetaCarr);
+pageCarr.style.display = "none";
+
+
+// Funcion Ver Carrito
+const verCarrito = () => {
+
+
+    let precioTotal = 0;
+    let idItem = 0;
     //div   
-    const tarjetaCarr = document.createElement('div');
-    tarjetaCarr.setAttribute("class", "modal");
-    tarjetaCarr.setAttribute("id", "pageCarr")
-    listaProductos.appendChild(tarjetaCarr);
+
 
     //Link Cerrar
     const pageCarr = document.getElementById("pageCarr");
+    pageCarr.style.display = "block";
     const cerrarTarjetaCarr = document.createElement('a');
     cerrarTarjetaCarr.setAttribute("class", "cerrar");
     cerrarTarjetaCarr.setAttribute("id", "cerrarModal");
@@ -499,24 +529,17 @@ const cargarModalCarrito = () => {
         const iMini = mCarr.querySelector(".iT");
         iMini.innerHTML = minIte;
 
+
+        let elemento = document.getElementById("pageCarr");
+        while (elemento.firstChild) {
+            elemento.removeChild(elemento.firstChild);
+        }
+
         // Cerrar modal
         pageCarr.style.display = "none";
 
 
     });
-
-
-}
-
-
-// Funcion Ver Carrito
-const verCarrito = () => {
-
-    pageCarr.style.display = "block"; // Se habilitaria nuevamente el display del modal
-    cargarModalCarrito();  // Se agrega funcion para resolver problema que no se ejecuta mas de una ves el evento de cerrar
-    let precioTotal = 0;
-    let idItem = 0;
-
     carrito.forEach(unProducto => {
 
         //div 
